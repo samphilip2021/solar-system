@@ -6,5 +6,22 @@ on:
       - main
    #   - feature/*
 
+
+env: 
+  MONGO_URI: 'mongodb+srv://supercluster.d83jj.mongodb.net/superData'
+  MONGO_USERNAME: ${{ vars.MONGO_USERNAME }}
+  MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD }}
+
 jobs: 
    unit-testing: 
+     name: nodejs unit testing
+     runs-on: ubuntu-latest
+     steps: 
+     - name: checkout repo 
+       uses: actions/checkout@v4
+     - uses: actions/setup-node@v4
+       with:
+          node-version: 18
+     - name: install dependencies
+       run: npm install 
+     - run: npm test 
