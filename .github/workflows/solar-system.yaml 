@@ -1,10 +1,9 @@
 name: solar system 
 on: 
-    workflow_dispatch:
-    push: 
+   workflow_dispatch:
+   push: 
       branches: 
       - main
-   #   - feature/*
 
 
 env: 
