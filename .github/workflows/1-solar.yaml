@@ -21,6 +21,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18
-      - name: install dependencies
+      - name: install dependencies m
         run: npm install 
-      - run: npm test 
+      - run: npm test
