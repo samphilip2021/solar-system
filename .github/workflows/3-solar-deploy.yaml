@@ -125,7 +125,7 @@ jobs:
       - name: Testing Docker image
         run: |  
               docker images
-              docker run  --name mayank-solar-system  -d  \
+              docker run  --name sam-solar-system  -d  \
               -p 3000:3000 \
               -e MONGO_URI=$MONGO_URI \
               -e MONGO_USERNAME=$MONGO_USERNAME \
@@ -147,7 +147,7 @@ jobs:
     outputs: 
       PORT: ${{ steps.myservice.outputs.PORT}}
     environment: 
-      name: development
+      name: sam
       url: http://3.136.148.224:${{ steps.myservice.outputs.PORT}}
     runs-on: ubuntu-latest
     steps: 
@@ -210,6 +210,6 @@ jobs:
     steps:
       - name: Test URL
         env:
-          MAYANK: ${{ needs.dev_deploy.outputs.PORT }}
+          SAM: ${{ needs.dev_deploy.outputs.PORT }}
         run: | 
-          curl  http://3.136.148.224:$MAYANK/live  -s -k  | grep -i live 
+          curl  http://3.136.148.224:$SAM/live  -s -k  | grep -i live 
