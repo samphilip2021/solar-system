@@ -189,6 +189,7 @@ jobs:
       - name: Creating A secret becuase pod needs it 
         continue-on-error: true
         run: | 
+          kubectl create ns sam
           kubectl -n ${{ vars.NAMESPACE }} create secret generic mongo-db-creds \
           --from-literal=MONGO_URI=${{ env.MONGO_URI }} \
           --from-literal=MONGO_USERNAME=${{ vars.MONGO_USERNAME }} \
