@@ -31,7 +31,7 @@ jobs:
       - name: install dependencies
         run: npm install 
       - run: npm test
-      - name: Saving the test results
+      - name: Saving the test result
         uses: actions/upload-artifact@v4
         with: 
           name: numberwise-${{ matrix.nodejsversion }}-on-${{ matrix.os }}
